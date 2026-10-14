@@ -1,9 +1,22 @@
-from app.loaders.text_loader import TextLoader
+# playground.py
 
-loader = TextLoader()
+from app.chunking.text_chunker import TextChunker
+from app.domain.document import Document
 
-document = loader.load(
-    "docs/example.txt"
+document = Document(
+    id="doc1",
+    title="demo",
+    content="A" * 1200,
+    source="demo.txt"
 )
 
-print(document)
+chunker = TextChunker()
+
+chunks = chunker.chunk(document)
+
+print(
+    f"Nombre de chunks : {len(chunks)}"
+)
+
+for chunk in chunks:
+    print(chunk.id)

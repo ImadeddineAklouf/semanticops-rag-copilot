@@ -1,22 +1,13 @@
 # playground.py
 
-from app.chunking.text_chunker import TextChunker
-from app.domain.document import Document
-
-document = Document(
-    id="doc1",
-    title="demo",
-    content="A" * 1200,
-    source="demo.txt"
+from app.embeddings.embedding_service import (
+    EmbeddingService
 )
 
-chunker = TextChunker()
+service = EmbeddingService()
 
-chunks = chunker.chunk(document)
-
-print(
-    f"Nombre de chunks : {len(chunks)}"
+vector = service.embed(
+    "Semantic Layer Builder"
 )
 
-for chunk in chunks:
-    print(chunk.id)
+print(len(vector))

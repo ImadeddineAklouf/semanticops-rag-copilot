@@ -1,0 +1,78 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ruff
+.ruff_cache/
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# ChromaDB
+data/vector_db/
+chroma/
+chroma_db/
+
+# Runtime data
+uploads/
+
+# Monitoring artifacts
+data/monitoring/
+
+# Model artifacts
+models/
+*.pkl
+*.joblib
+*.onnx
+
+# Docker
+*.tar
+
+# Temporary files
+tmp/
+temp/
+
+# Playground scripts
+playground.py
+playground_*.py
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local certificates
+*.crt
+*.cer
+
+# WSL / Docker local files
+.wslconfig
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3

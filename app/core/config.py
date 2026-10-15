@@ -22,13 +22,19 @@ class RetrievalSettings(BaseModel):
 class VectorStoreSettings(BaseModel):
     collection_name: str
 
+class UploadSettings(BaseModel):
+    directory: str
+
+class MonitoringSettings(BaseModel):
+    enabled: bool
 
 class Settings(BaseModel):
     project: ProjectSettings
     chunking: ChunkingSettings
     retrieval: RetrievalSettings
     vectorstore: VectorStoreSettings
-
+    uploads: UploadSettings
+    monitoring: MonitoringSettings
 
 def load_settings() -> Settings:
     config_path = (

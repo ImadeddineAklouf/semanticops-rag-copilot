@@ -1,4 +1,5 @@
 import chromadb
+from torch import chunk
 
 
 class ChromaStore:
@@ -8,7 +9,7 @@ class ChromaStore:
         collection_name: str = "semanticops"
     ):
         self.client = chromadb.PersistentClient(
-            path="./data/vector_db"
+            path="data/vector_db"
         )
 
         self.collection = (
@@ -19,15 +20,21 @@ class ChromaStore:
 
     def add_chunk(
         self,
-        chunk_id: str,
-        content: str,
-        embedding: list[float],
-    ) -> None:
-
+        chunk,
+        embedding,
+    ):
         self.collection.add(
-            ids=[chunk_id],
-            documents=[content],
+            ids=[chunk.id],
+            documents=[chunk.content],
             embeddings=[embedding],
+            metadatas=[
+                {
+                    "document_id": chunk.document_id,
+                    "source": chunk.source,
+                    "file_type": chunk.file_type,
+                    "chunk_index": chunk.chunk_index,
+                }
+            ],
         )
 
     def search(

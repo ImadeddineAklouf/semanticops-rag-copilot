@@ -1,0 +1,10 @@
+[
+  {
+    "question": "What is RAG?",
+    "expected_answer": "retrieval"
+  },
+  {
+    "question": "What does ChromaDB store?",
+    "expected_answer": "embeddings"
+  }
+]

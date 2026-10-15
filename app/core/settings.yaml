@@ -4,11 +4,17 @@ project:
   environment: dev
 
 chunking:
-  chunk_size: 500
-  chunk_overlap: 50
+  chunk_size: 100
+  chunk_overlap: 10
 
 retrieval:
   top_k: 5
 
 vectorstore:
-  collection_name: semanticops_documents
+  collection_name: api
+
+uploads:
+  directory: uploads
+
+monitoring:
+  enabled: true

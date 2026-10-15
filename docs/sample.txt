@@ -1,0 +1,1 @@
+SemanticOps RAG is a platform designed to index technical documentation.

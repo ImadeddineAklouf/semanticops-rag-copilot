@@ -1,16 +1,22 @@
 from app.domain.chunk import Chunk
 from app.domain.document import Document
-
+from app.core.config import settings
 
 class TextChunker:
     def __init__(
         self,
-        chunk_size: int = 500,
-        chunk_overlap: int = 50,
+        chunk_size: int | None = None,
+        chunk_overlap: int | None = None,
     ):
-        self.chunk_size = chunk_size
-        self.chunk_overlap = chunk_overlap
+        self.chunk_size = (
+            chunk_size
+            or settings.chunking.chunk_size
+        )
 
+        self.chunk_overlap = (
+            chunk_overlap
+            or settings.chunking.chunk_overlap
+        )
     def chunk(
         self,
         document: Document,
@@ -35,6 +41,8 @@ class TextChunker:
                     document_id=document.id,
                     content=chunk_text,
                     chunk_index=index,
+                    source=document.source,
+                    file_type=document.source.split(".")[-1],
                 )
             )
 

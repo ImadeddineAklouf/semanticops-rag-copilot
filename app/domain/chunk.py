@@ -6,3 +6,6 @@ class Chunk(BaseModel):
     document_id: str
     content: str
     chunk_index: int
+
+    source: str | None = None
+    file_type: str | None = None
